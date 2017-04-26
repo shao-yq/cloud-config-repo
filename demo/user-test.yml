@@ -7,9 +7,9 @@ spring:
     index: 0
 
   datasource:
-    url: jdbc:mysql://localhost:3306/user_service
-    username: game
-    password: 123456
+    url: jdbc:mysql://10.204.211.83:3306/user_service
+    username: cloud
+    password: hello1234
     testWhileIdle: true
     validationQuery: SELECT 1
 
