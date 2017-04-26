@@ -1,0 +1,64 @@
+spring:
+  jpa:
+    show-sql: false
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        query.substitutions: true 1, false 0
+        default_batch_fetch_size: 50
+        jdbc.batch_size: 50
+        order_inserts: true
+        max_fetch_depth: 2
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+        connection.zeroDateTimeBehavior: convertToNull
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  resources:
+    add-mappings: true
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          # brokers: 192.168.239.129:9092,192.168.239.129:9093,192.168.239.129:9094
+          # zkNodes: 192.168.239.129:2181
+          brokers: 192.168.2.126:9092
+           # ,192.168.2.126:9093 # ,192.168.2.126:9094,192.168.2.125:9092
+          zkNodes: 192.168.2.126:2181
+
+# Discovery Server Access
+eureka:
+  instance:
+    # hostname: localhost
+    preferIpAddress: true
+
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+
+hystrix:
+  command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
+  threadpool.default.coreSize: 10
+
+feign:
+  hystrix:
+    enabled: false
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+
+
+
+
