@@ -1,15 +1,15 @@
 server:
-  port: 23141
+  port: 23101
 
 spring:
   application:
-    name: product
+    name: user
     index: 0
 
   datasource:
-    url: jdbc:mysql://localhost:3306/product_service
+    url: jdbc:mysql://localhost:3306/user_service
     username: game
-    password: 12345
+    password: 123456
     testWhileIdle: true
     validationQuery: SELECT 1
 
@@ -40,14 +40,14 @@ spring:
       bindings:
         input:
           # destination: testq1
-          group: product
+          group: user
           consumer:
             concurrency: 1
             partitioned: false
             headerMode: raw
         output:
           # destination: testq2
-          group: product
+          group: user
           producer:
             # partitionKeyExpression: null
             # partitionKeyExtractorClass: null
