@@ -5,7 +5,11 @@ eureka:
       defaultZone: ${eureka.service.uri:http://localhost:8761}/eureka/
 
 server:
-  port: 8762
+  port: ${config.port:8762}
 spring:
   application:
     name: service-hi
+
+# Dynamic config values
+#   eureka.service.uri
+#   config.port
