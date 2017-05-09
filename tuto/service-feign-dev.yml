@@ -3,3 +3,9 @@ server:
 spring:
   application:
     name: service-feign
+    
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${eureka.service.uri:http://micros-discovery:8761}/eureka/
