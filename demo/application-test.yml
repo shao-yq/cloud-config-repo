@@ -28,9 +28,9 @@ spring:
         binder:
           # brokers: 192.168.239.129:9092,192.168.239.129:9093,192.168.239.129:9094
           # zkNodes: 192.168.239.129:2181
-          brokers: 192.168.2.126:9092
-           # ,192.168.2.126:9093 # ,192.168.2.126:9094,192.168.2.125:9092
-          zkNodes: 192.168.2.126:2181
+          brokers: 10.204.211.83:9092,10.104.0.122:9092 
+          # ,192.168.2.126:9094,192.168.2.125:9092
+          zkNodes: 10.204.211.83:2181,10.104.0.122:2181
 
 # Discovery Server Access
 eureka:
@@ -40,7 +40,7 @@ eureka:
 
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://10.204.211.83:1111/eureka/
 
 hystrix:
   command.default.execution.isolation.thread.timeoutInMilliseconds: 3000
